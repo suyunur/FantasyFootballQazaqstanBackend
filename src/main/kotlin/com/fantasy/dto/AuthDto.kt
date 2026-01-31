@@ -77,6 +77,7 @@ data class UserResponse(
     val username: String,
     val firstName: String?,
     val lastName: String?,
+    val role: String?,
 )
 
 data class MessageResponse(
