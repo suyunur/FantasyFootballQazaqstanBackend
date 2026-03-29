@@ -23,7 +23,7 @@ class AuthService(
     private val jwtService: JwtService,
     private val authenticationManager: AuthenticationManager,
     private val userDetailsService: UserDetailsService,
-    @Value("\${jwt.expiration}")
+    @param:Value("\${jwt.expiration}")
     private val jwtExpiration: Long
 ) {
 
