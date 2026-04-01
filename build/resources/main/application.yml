@@ -4,8 +4,8 @@ spring:
 
   # Database Configuration
   datasource:
-    url: jdbc:h2:mem:fantasydb
-    driver-class-name: org.h2.Driver
+    url: jdbc:postgresql://localhost:5432/fantasy_db
+    driver-class-name: org.postgresql.Driver
     username: postgres
     password: suyunur
   
@@ -18,16 +18,16 @@ spring:
   # JPA Configuration
   jpa:
     hibernate:
-      ddl-auto: create-drop
+      ddl-auto: update
     show-sql: true
     properties:
       hibernate:
         format_sql: true
-    database-platform: org.hibernate.dialect.H2Dialect
+    database-platform: org.hibernate.dialect.PostgreSQLDialect
 
 # Server Configuration
 server:
-  port: 5432
+  port: 8080
 
 # JWT Configuration
 jwt:

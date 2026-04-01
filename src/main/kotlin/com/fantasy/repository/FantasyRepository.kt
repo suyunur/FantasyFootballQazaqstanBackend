@@ -1,12 +1,11 @@
 package com.fantasy.repository
 
-import com.fantasy.dto.FantasyInfoResponse
 import com.fantasy.model.PlayerInfo
+import org.springframework.data.jpa.repository.JpaRepository
 import org.springframework.stereotype.Repository
-import java.util.Optional
+import java.util.*
 
 @Repository
-interface FantasyRepository {
-    fun getInfo(email: String): Optional<FantasyInfoResponse>
-    fun getPlayerFantasy(email: String): Optional<PlayerInfo>
+interface FantasyRepository : JpaRepository<PlayerInfo, Long> {
+    fun findByEmail(email: String): Optional<PlayerInfo>
 }

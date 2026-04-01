@@ -18,7 +18,7 @@ class FantasyService(
             lastGameDate = Date().time,
             transferDeadline = Date().time,
         )
-        val playerInfo = fantasyRepository.getPlayerFantasy(email).orElseGet {
+        val playerInfo = fantasyRepository.findByEmail(email).orElseGet {
             PlayerInfo.empty(email)
         }
         val info = FantasyInfoResponse(
