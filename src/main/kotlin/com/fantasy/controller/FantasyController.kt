@@ -1,7 +1,9 @@
 package com.fantasy.controller
 
-import com.fantasy.dto.FantasyInfoResponseimport com.fantasy.service.FantasyService
+import com.fantasy.dto.FantasyInfoResponse
+import com.fantasy.service.FantasyService
 import org.springframework.http.ResponseEntity
+import org.springframework.security.core.Authentication
 import org.springframework.web.bind.annotation.*
 
 @RestController
@@ -11,7 +13,8 @@ class FantasyController(
 ) {
 
     @GetMapping("/info")
-    fun getInfo(): ResponseEntity<FantasyInfoResponse> {
-        val response = fantasyService.getInfo()
+    fun getInfo(authentication: Authentication): ResponseEntity<FantasyInfoResponse> {
+        val response = fantasyService.getInfo(authentication.name)
+        return ResponseEntity.ok(response)
     }
 }
