@@ -12,15 +12,15 @@ data class PlayerInfo(
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     val id: Long = 0,
-    val email: String,
+    val userId: Long,
     val teamName: String,
     val averagePoints: Int,
     val currentPoints: Int,
     val highestPoints: Int,
 ) {
     companion object {
-        fun empty(email: String) = PlayerInfo(
-            email = email,
+        fun empty(userId: Long) = PlayerInfo(
+            userId = userId,
             teamName = "",
             averagePoints = 0,
             currentPoints = 0,

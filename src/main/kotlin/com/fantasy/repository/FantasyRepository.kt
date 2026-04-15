@@ -7,5 +7,5 @@ import java.util.*
 
 @Repository
 interface FantasyRepository : JpaRepository<PlayerInfo, Long> {
-    fun findByEmail(email: String): Optional<PlayerInfo>
+    fun findByUserId(userId: Long): Optional<PlayerInfo>
 }

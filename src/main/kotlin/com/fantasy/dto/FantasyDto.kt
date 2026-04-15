@@ -1,10 +1,9 @@
 package com.fantasy.dto
 
 import com.fantasy.model.GameWeekInfo
-import com.fantasy.model.PlayerInfo
 
 data class FantasyInfoResponse(
-    val playerInfo: PlayerInfo? = null,
+    val playerInfo: PlayerInfoResponse,
     val gameWeekInfo: GameWeekInfo,
 )
 
