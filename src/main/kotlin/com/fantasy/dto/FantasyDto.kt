@@ -1,6 +1,7 @@
 package com.fantasy.dto
 
 import com.fantasy.model.GameWeekInfo
+import com.fantasy.model.Team
 
 data class FantasyInfoResponse(
     val playerInfo: PlayerInfoResponse,
@@ -9,7 +10,7 @@ data class FantasyInfoResponse(
 
 data class PlayerInfoResponse(
     val teamId: String,
-    val teamName: String,
+    val team: Team?,
     val averagePoints: Int,
     val currentPoints: Int,
     val highestPoints: Int,

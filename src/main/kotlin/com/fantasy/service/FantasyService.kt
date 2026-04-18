@@ -37,7 +37,7 @@ class FantasyService(
 
     private fun PlayerInfo.toResponse() = PlayerInfoResponse(
         teamId = this.id.toString(),
-        teamName = this.teamName,
+        team = this.team,
         averagePoints = this.averagePoints,
         currentPoints = this.currentPoints,
         highestPoints = this.highestPoints
