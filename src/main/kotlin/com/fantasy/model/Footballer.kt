@@ -47,9 +47,9 @@ data class Footballer(
     val nextOpponent: FootballClub,
 )
 
-enum class Position(val title: String, val shortTitle: String) {
-    GOALKEEPER("Goalkeeper", "GKP"),
-    DEFENDER("Defender", "DEF"),
-    MIDFIELDER("Midfielder", "MID"),
-    FORWARD("Forward", "FWD")
+enum class Position {
+    GOALKEEPER,
+    DEFENDER,
+    MIDFIELDER,
+    FORWARD
 }

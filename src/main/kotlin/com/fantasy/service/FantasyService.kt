@@ -3,28 +3,27 @@ package com.fantasy.service
 import com.fantasy.dto.FantasyInfoResponse
 import com.fantasy.dto.PlayerInfoResponse
 import com.fantasy.exception.AuthException
-import com.fantasy.model.GameWeekInfo
+import com.fantasy.mapper.toGameWeekInfoResponse
 import com.fantasy.model.PlayerInfo
 import com.fantasy.repository.FantasyRepository
+import com.fantasy.repository.GameweekRepository
 import com.fantasy.repository.UserRepository
 import org.springframework.stereotype.Service
-import java.util.*
 
 @Service
 class FantasyService(
     private val fantasyRepository: FantasyRepository,
-    private val userRepository: UserRepository
+    private val userRepository: UserRepository,
+    private val gameweekRepository: GameweekRepository
 ) {
 
     fun getInfo(email: String) : FantasyInfoResponse {
         val user = userRepository.findByEmail(email)
             .orElseThrow { AuthException("User not found") }
 
-        val gameWeekInfo = GameWeekInfo(
-            gameWeek = 1,
-            lastGameDate = Date().time,
-            transferDeadline = Date().time,
-        )
+        val gameWeekInfo = gameweekRepository.findFirstByOrderByGameWeekDesc()
+            .orElseThrow { AuthException("No gameweek configured") }
+            .toGameWeekInfoResponse()
         val playerInfo = fantasyRepository.findByUserId(user.id).orElseGet {
             fantasyRepository.save(PlayerInfo.empty(user.id))
         }

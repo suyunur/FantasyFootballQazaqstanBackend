@@ -1,11 +1,10 @@
 package com.fantasy.dto
 
-import com.fantasy.model.GameWeekInfo
 import com.fantasy.model.Team
 
 data class FantasyInfoResponse(
     val playerInfo: PlayerInfoResponse,
-    val gameWeekInfo: GameWeekInfo,
+    val gameWeekInfo: GameWeekInfoResponse,
 )
 
 data class PlayerInfoResponse(
@@ -18,6 +17,4 @@ data class PlayerInfoResponse(
 
 data class GameWeekInfoResponse(
     val gameWeek: Int,
-    val lastGameDate: Long,
-    val transferDeadline: Long?
-)
+    val transferDeadline: Long)
