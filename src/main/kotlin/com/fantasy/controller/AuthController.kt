@@ -32,19 +32,19 @@ class AuthController(
         return ResponseEntity.ok(response)
     }
 
-    @PostMapping("/forgot-password")
+    @PostMapping("/forgotPassword")
     fun forgotPassword(@Valid @RequestBody request: ForgotPasswordRequest): ResponseEntity<MessageResponse> {
         val response = authService.forgotPassword(request)
         return ResponseEntity.ok(response)
     }
 
-    @PostMapping("/reset-password")
+    @PostMapping("/resetPassword")
     fun resetPassword(@Valid @RequestBody request: ResetPasswordRequest): ResponseEntity<MessageResponse> {
         val response = authService.resetPassword(request)
         return ResponseEntity.ok(response)
     }
 
-    @PostMapping("/change-password")
+    @PostMapping("/changePassword")
     fun changePassword(
         authentication: Authentication,
         @Valid @RequestBody request: ChangePasswordRequest

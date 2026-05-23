@@ -10,11 +10,14 @@ data class FantasyInfoResponse(
 data class PlayerInfoResponse(
     val teamId: String,
     val team: Team?,
-    val averagePoints: Int,
     val currentPoints: Int,
-    val highestPoints: Int,
 )
 
 data class GameWeekInfoResponse(
     val gameWeek: Int,
     val transferDeadline: Long)
+
+data class ChangeTeamRequest(
+    val team: Team,
+    val deductedPoints: Int
+)
