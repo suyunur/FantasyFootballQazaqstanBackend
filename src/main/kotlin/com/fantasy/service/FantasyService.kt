@@ -5,20 +5,22 @@ import com.fantasy.dto.FantasyInfoResponse
 import com.fantasy.dto.PlayerInfoResponse
 import com.fantasy.exception.AuthException
 import com.fantasy.mapper.toGameWeekInfoResponse
+import com.fantasy.model.Footballer
 import com.fantasy.model.PlayerInfo
+import com.fantasy.model.Position
 import com.fantasy.repository.FantasyRepository
+import com.fantasy.repository.FootballerRepository
 import com.fantasy.repository.GameweekRepository
-import com.fantasy.repository.TeamRepository
 import com.fantasy.repository.UserRepository
 import org.springframework.stereotype.Service
-import kotlin.jvm.optionals.getOrElse
+import org.springframework.transaction.annotation.Transactional
 
 @Service
 class FantasyService(
     private val fantasyRepository: FantasyRepository,
     private val userRepository: UserRepository,
     private val gameweekRepository: GameweekRepository,
-    private val teamRepository: TeamRepository,
+    private val footballerRepository: FootballerRepository,
 ) {
 
     fun getInfo(email: String) : FantasyInfoResponse {
@@ -57,4 +59,9 @@ class FantasyService(
         team = this.team,
         currentPoints = this.currentPoints,
     )
+
+    @Transactional(readOnly = true)
+    fun findFootballersByPosition(position: Position): List<Footballer> {
+        return footballerRepository.findByPosition(position)
+    }
 }

@@ -2,7 +2,8 @@ package com.fantasy.controller
 
 import com.fantasy.dto.ChangeTeamRequest
 import com.fantasy.dto.FantasyInfoResponse
-import com.fantasy.model.Team
+import com.fantasy.model.Footballer
+import com.fantasy.model.Position
 import com.fantasy.service.FantasyService
 import org.springframework.http.ResponseEntity
 import org.springframework.security.core.Authentication
@@ -27,5 +28,13 @@ class FantasyController(
     ): ResponseEntity<Any> {
         fantasyService.changeTeam(authentication.name, request)
         return ResponseEntity.ok(Any())
+    }
+
+    @GetMapping("/footballersByPosition")
+    fun getFootballersByPosition(
+        @RequestParam position: Position
+    ): ResponseEntity<List<Footballer>> {
+        val footballers = fantasyService.findFootballersByPosition(position)
+        return ResponseEntity.ok(footballers)
     }
 }
