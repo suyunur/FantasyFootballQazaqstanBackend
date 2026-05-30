@@ -36,9 +36,7 @@ dependencies {
     runtimeOnly("io.jsonwebtoken:jjwt-jackson:0.12.3")
     
     // Database
-    dependencies {
-        implementation("org.postgresql:postgresql:42.7.3")
-    }
+    implementation("org.postgresql:postgresql:42.7.3")
     
     // Development
     developmentOnly("org.springframework.boot:spring-boot-devtools")

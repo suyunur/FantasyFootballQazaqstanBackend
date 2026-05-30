@@ -10,6 +10,7 @@ import jakarta.persistence.GenerationType
 import jakarta.persistence.Id
 import jakarta.persistence.JoinColumn
 import jakarta.persistence.ManyToOne
+import jakarta.persistence.OneToOne
 import jakarta.persistence.Table
 
 @Entity
@@ -42,7 +43,7 @@ data class Footballer(
     @Column(name = "current_price", nullable = false)
     val currentPrice: Double,
 
-    @ManyToOne(fetch = FetchType.LAZY)
+    @OneToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "next_opponent_id")
     val nextOpponent: FootballClub,
 )
