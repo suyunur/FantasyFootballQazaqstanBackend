@@ -36,5 +36,6 @@ data class Team(
         joinColumns = [JoinColumn(name = "team_id")],
         inverseJoinColumns = [JoinColumn(name = "footballer_id")]
     )
-    val footballers: MutableList<Footballer> = mutableListOf()
+    val footballers: MutableList<Footballer> = mutableListOf(),
+    val currentPoints: Int = 0,
 )
