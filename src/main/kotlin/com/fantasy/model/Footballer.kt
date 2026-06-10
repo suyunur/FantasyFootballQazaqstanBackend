@@ -42,10 +42,6 @@ data class Footballer(
 
     @Column(name = "current_price", nullable = false)
     val currentPrice: Double,
-
-    @OneToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "next_opponent_id")
-    val nextOpponent: FootballClub,
 )
 
 enum class Position {
